@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-module.exports = {
+const dbConfig = {
   development: {
     client: "postgresql",
     connection: {
@@ -13,11 +13,11 @@ module.exports = {
       password: process.env.DATABASE_ACCESS_KEY,
     },
     migrations: {
-      directory: "./db/migrations",
+      directory: "./src/data/migrations",
       tableName: "knex_migrations",
     },
     seeds: {
-      directory: "./db/seeds",
+      directory: "./src/data/seeds",
     },
     pool: {
       min: 0,
@@ -25,3 +25,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = dbConfig;
